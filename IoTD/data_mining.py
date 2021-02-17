@@ -128,8 +128,10 @@ while(True):
         # value=False
         end3 = time.time()
         print(end3-start3)
-        bench = open("/benchmarking/encrypt_benchmark.csv","a+")
-        bench.write(str(number_of_rows)+" , "+str(end3-start3)+"\n")
-        bench.close()
+        
+        publishResult(str(end3-start3),"encrypt_time")
+        #bench = open("/benchmarking/encrypt_benchmark.csv","a+")
+        #bench.write(str(number_of_rows)+" , "+str(end3-start3)+"\n")
+        #bench.close()
         df = pd.DataFrame()
         datThread(url1,url2,url3)
