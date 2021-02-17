@@ -1,0 +1,12 @@
+NO2,0
+NO,1
+Temperature,2
+Humidity,3
+Sound,4
+CO,5
+PM 4,6
+O3,7
+PM1,8
+PM2.5,9
+PM10,10
+Pressure,11

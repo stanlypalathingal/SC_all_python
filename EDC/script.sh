@@ -1,0 +1,1 @@
+python3 Subscribe_1.py $1 & python3 decider_proper.py $1 $2 
