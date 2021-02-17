@@ -51,6 +51,7 @@ def benchmark():
     #print("a  ",a)
     c = (datetime.datetime.now()-a)
     print("Time taken benchmark ",c.total_seconds())
+    publish("sc_time",str(c.total_seconds()))
     print("*************************************************")
     f = open("data/temporary_store.txt","w")
     f.truncate()
