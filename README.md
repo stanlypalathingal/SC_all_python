@@ -41,9 +41,9 @@ docker run -it -v /home/pi/Documents:/benchmarking stanlysac/sc_all_python:sc 3.
 
 ### b) IoTD
 
-docker run -it /home/pi/Documents:/benchmarking stanlysac/sc_all_python:iotd_benchmarking ip_address duration
+docker run -it -v /home/pi/Documents:/benchmarking stanlysac/sc_all_python:iotd_benchmarking ip_address duration
 ```bash
-docker run -it /home/pi/Documents:/benchmarking stanlysac/sc_all_python:iotd_benchmarking 3.192.180.215   8
+docker run -it -v /home/pi/Documents:/benchmarking stanlysac/sc_all_python:iotd_benchmarking 3.192.180.215   8
 ```
 here 8 is the **number of days** for which you can collect the data. This will generate more than 50K records.
 For the benchmarking the system uses records of 1K,2K,5K,10K,20K and 40K.
