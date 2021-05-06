@@ -1,9 +1,9 @@
-# 1. For ordinary demo
+# 1. For ordinary demo 
 In order to reproduce the system, the required system and software requirements are
 * Three SSH Raspberry Pi with Docker installed and SSH enabled
 * A static IP (Broker) for MQTT. 
 
-The three components must run parallelly to reproduce the model. Docker images for the components are uploaded in the **www.dockerhub.com** and one must pull it to the system to execute it.
+The three components must run parallelly to reproduce the model. Docker images for the components are uploaded in the **www.dockerhub.com** and one must pull it to the system to execute it
 
 The first execution might take some time since EDC takes time for Machine Learning modeling.
 
