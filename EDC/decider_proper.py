@@ -36,7 +36,7 @@ df = pd.read_csv("data/training_data.csv")
 total_row = df.shape[0]
 trial_row = int(total_row - (total_row * 0.25))
 
-# Function1
+# Function1 
 # function to factor the columns of sensor,types and units
 def factorize(obj, obj_list, table, data, write_to_file):
     if (write_to_file):

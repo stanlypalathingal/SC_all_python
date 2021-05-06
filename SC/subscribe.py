@@ -2,6 +2,8 @@
 import paho.mqtt.client as mqtt
 import time
 import sys
+
+#socket program for inter communication
 import socket
 s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 s.bind((socket.gethostname(),9006))

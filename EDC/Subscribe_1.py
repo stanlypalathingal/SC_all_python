@@ -1,3 +1,4 @@
+# load initial packages
 import paho.mqtt.subscribe as sub
 import pandas as pd
 import asymcrypt
@@ -10,16 +11,20 @@ from cryptography.fernet import Fernet
 import time
 
 HOST = sys.argv[1]
+mqtt_host = sys.argv[1]
 PORT = 1883
+
+#socket programing
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((socket.gethostname(), 9012))
 s.listen()
-mqtt_host = sys.argv[1]
-KIE = b'dummy154value'
+
+KIE = b'dummy154value' # dummy value of KIE for first instance
 number_of_records=0
 encrypt_time=0
+
 def on_message_print(client, userdata, message):
-    if message.topic == "dc1":
+    if message.topic == "dc1": # for colecting  the KIE from SC
         global KIE
         encrypted_data = message.payload.decode()
         new_rnd_bytes = bytes.fromhex(encrypted_data)
@@ -27,18 +32,18 @@ def on_message_print(client, userdata, message):
         print("Received the Key")
         KIE=Fernet(key)
     
-    elif message.topic== "sc_time":
+    elif message.topic== "sc_time": # for accepting SC time duration
         sc_time=message.payload.decode("utf-8")
         sc_bench = open("/benchmarking/sc_benchmark.csv","a+")
         sc_bench.write(str(sc_time)+"\n")
         sc_bench.close()
         
-    elif message.topic== "encrypt_time":
+    elif message.topic== "encrypt_time": # for accepting IoT encryption time duration
         global encrypt_time
         #print(message.payload.decode("utf-8"))
         encrypt_time=message.payload.decode("utf-8")
         
-    elif message.topic== "decrypt_time":
+    elif message.topic== "decrypt_time": # for accepting EDC decryption time duration
         global number_of_records
         #print(message.payload.decode("utf-8"))
         number_of_records=message.payload.decode("utf-8")
@@ -50,7 +55,8 @@ def on_message_print(client, userdata, message):
         mess=(KIE.decrypt(message.payload)).decode("utf-8")
         #print(mess)
         with open('data/test.csv','a+') as f:
-            if(operator.contains(mess,"done")):
+            # for calculating encryption and decryption time time duration
+            if(operator.contains(mess,"done")): 
                 clientsocket,address = s.accept()
                 clientsocket.send(bytes("done","utf-8"))
                 #print("All data written to file")

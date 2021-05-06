@@ -1,3 +1,4 @@
+# initial packages required for the program
 import paho.mqtt.subscribe as sub
 import asymcrypt
 import paho.mqtt.publish as pb
@@ -6,17 +7,20 @@ import sys
 import logging
 import time
 
+# socket programming for inter-communictaion. Communicate to client
 import socket
 s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 s.bind((socket.gethostname(),9003))
 s.listen()
 
+#assigning the dynamic parameters
 HOST = sys.argv[1]
 PORT = 1883
 
 def print_received_message_mqtt(msg):
     print("Message received. Payload: {}".format(str(msg.payload)))
 
+# for subscribing the data request and symmentric key (KIE)
 def on_message_print(client, userdata, msg):
     if msg.topic == "sensor_data_req":
         # print_received_message_mqtt(msg)
@@ -31,4 +35,6 @@ def on_message_print(client, userdata, msg):
         clientsocket.send(bytes(mess,"utf-8"))
 
 logging.info("Subscription started.")
+
+#calling subscription process
 sub.callback(on_message_print, ["sensor_data_req","sensor_sym_key"], hostname=HOST, port=PORT)
