@@ -1,4 +1,5 @@
-The findings of this work are published in "Decision tree based user-centric security solution for critical IoT infrastructure" and it is avilable at https://doi.org/10.1016/j.compeleceng.2022.107754
+The findings of this work are published in ["Decision tree based user-centric security solution for critical IoT infrastructure"] (https://doi.org/10.1016/j.compeleceng.2022.107754)
+
 HTe work simulates a reallife scenario and uses Machine learning methods to identify threats.
 
 Use the following step for replication.
