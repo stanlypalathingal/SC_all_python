@@ -1,3 +1,7 @@
+The findings of this work are published in "Decision tree based user-centric security solution for critical IoT infrastructure" and it is avilable at https://doi.org/10.1016/j.compeleceng.2022.107754
+HTe work simulates a reallife scenario and uses Machine learning methods to identify threats.
+
+Use the following step for replication.
 # 1. For ordinary demo 
 In order to reproduce the system, the required system and software requirements are
 * Three SSH Raspberry Pi with Docker installed and SSH enabled
